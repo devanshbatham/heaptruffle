@@ -1,0 +1,17 @@
+{
+  "name": "heaptruffle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "figlet": "^1.6.0",
+    "heapsnapshot-parser": "^0.1.0",
+    "puppeteer": "^19.11.1"
+  }
+}
