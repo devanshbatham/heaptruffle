@@ -38,6 +38,17 @@ or
 heaptruffle --list urls.txt
 ```
 
+### More Examples: 
+
+```sh
+heaptruffle --list urls.txt --concurrency 10
+```
+
+```sh
+heaptruffle --url https://example.com --output output.txt
+```
+
+
 ## Options
 
 | Option       | Alias | Type     | Description                                  |
