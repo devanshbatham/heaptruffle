@@ -38,15 +38,18 @@ or
 heaptruffle --list urls.txt
 ```
 
-# Options
+## Options
 
-- `--url (-u)`: Specify a single URL for heap analysis.
-- `--list (-l)`: Specify a file containing a list of URLs for heap analysis.
-- `--concurrency (-c)`: Set the number of URLs to fetch concurrently (default: 5).
-- `--silent (-s)`: Run the tool in silent mode, without displaying the ASCII banner.
-- `--output (-o)`: Specify a file to save the output. The output will be saved in addition to displaying it on the console.
+| Option       | Alias | Type     | Description                                  |
+|--------------|-------|----------|----------------------------------------------|
+| `--url`      | `-u`  | `string` | URL address                                  |
+| `--list`     | `-l`  | `string` | File containing list of URLs                 |
+| `--concurrency` | `-c`  | `number` | Number of URLs to fetch concurrently (default: 5) |
+| `--silent`   | `-s`  | `boolean`| Silent mode, does not display the ASCII banner (default: false)|
+| `--output`   | `-o`  | `string` | File to save the output                       |
+| `--help`     | `-h`  |          | Show help                                    |
 
-By default, HeapTruffle will display the ASCII banner when executed. To run it without the banner, use the `--silent` option. Additionally, you can save the output to a file using the `--output` option.
+
 
 # How it Works
 
