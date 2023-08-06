@@ -38,17 +38,22 @@ or
 heaptruffle --list urls.txt
 ```
 
-### More Examples: 
+- Increase concurrency to fetch URLs faster:
 
 ```sh
 heaptruffle --list urls.txt --concurrency 10
 ```
 
-```sh
+- Save the output to a file (output.txt):
+
 heaptruffle --url https://example.com --output output.txt
 ```
 
+- Use silent mode to suppress the ASCII banner:
 
+```
+heaptruffle --url https://example.com --silent
+```
 ## Options
 
 | Option       | Alias | Type     | Description                                  |
