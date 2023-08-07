@@ -13,6 +13,9 @@
   <br>
 </p>
 
+
+![heaptruffle](https://github.com/devanshbatham/heaptruffle/blob/main/static/truffleheap.png?raw=true)
+
 # Installation
 
 Follow these steps to get `heaptruffle` up and running:
