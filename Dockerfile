@@ -1,19 +1,24 @@
 # Use an official Node.js runtime as the base image
 FROM node:16.20.1
 
-# Install required libraries
+# Install required libraries and Google Chrome
 RUN apt-get update \
-    && apt-get install -y libx11-xcb1 libxcb-dri3-0 libxcb-present0 libxcb-randr0 libxcb-xfixes0 libxshmfence1 libcups2 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libpango-1.0-0 libxkbcommon0 \
+    && apt-get install -y wget gnupg \
+    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+    && apt-get update \
+    && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 \
+      --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Set a working directory within the container
 WORKDIR /app
 
 # Copy your Puppeteer script and other necessary files into the container
-COPY script.js ./
+COPY script.js package.json ./
 
 # Install Puppeteer and any other dependencies your script needs
-RUN npm install puppeteer
+RUN npm install
 
 # Set the command to run the Puppeteer script with user-provided parameters
 ENTRYPOINT ["node", "script.js"]
