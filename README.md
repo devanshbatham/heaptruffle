@@ -103,7 +103,6 @@ Once done, you can invoke `heaptruffle` from any location in your terminal.
 | `--concurrency` | `-c`  | `number` | Number of URLs to fetch concurrently (default: 5)             |
 | `--silent`      | `-s`  | `boolean`| Silent mode, does not display the ASCII banner (default: false)|
 | `--output`      | `-o`  | `string` | File to save the output                                        |
-| `--help`        | `-h`  |          | Show help                                                     |
 
 # How it Works
 
