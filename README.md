@@ -16,6 +16,11 @@
 
 
 
+# Install Dependencies
+```sh
+sudo apt-get install -y libx11-xcb1 libxcb-dri3-0 libxcb-present0 libxcb-randr0 libxcb-xfixes0 libxshmfence1 libcups2 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libpango-1.0-0 libxkbcommon0
+```
+
 # Install
 ```sh
 git clone https://github.com/devanshbatham/heaptruffle
