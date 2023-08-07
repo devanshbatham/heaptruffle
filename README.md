@@ -53,9 +53,9 @@ Once done, you can invoke `heaptruffle` from any location in your terminal.
   ```
 
 - or, to run it on a file containing URLs. 
-```sh
-docker run -it --rm -v "$PWD":/app/data --name heaptruffle-container heaptruffle --list urls.txt
-```
+  ```sh
+  docker run -it --rm -v "$PWD":/app/data --name heaptruffle-container heaptruffle --list urls.txt
+  ```
 
 - Save the output to a file (output.txt):
   ```sh
