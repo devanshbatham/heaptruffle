@@ -9,7 +9,7 @@
   <a href="#install">🏗️ Install</a>  
   <a href="#usage">⛏️ Usage</a> 
   <a href="#how-it-works">💡 How it Works</a>  
-  <a href="#inspiration">💡 Inspiration</a> 
+  <a href="#inspiration">⚡ Inspiration</a> 
   <br>
 </p>
 
