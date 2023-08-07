@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Initialize an empty array to hold the modified arguments
+args=()
+
+# Iterate over the command line arguments
+for arg in "$@"; do
+  # If the previous argument was --output or -o, prepend /app/data/ to the current argument
+  if [[ $prev_arg == "--output" ]] || [[ $prev_arg == "-o" ]]; then
+    arg="/app/data/$arg"
+  # If the previous argument was --list or -l, prepend /app/data/ to the current argument
+  elif [[ $prev_arg == "--list" ]] || [[ $prev_arg == "-l" ]]; then
+    arg="/app/data/$arg"
+  fi
+  # Add the current argument to the array of modified arguments
+  args+=("$arg")
+  # Remember the current argument for the next iteration
+  prev_arg=$arg
+done
+
+# Run the Docker command with the modified arguments
+docker run -it --rm -v "$PWD":/app/data --name heaptruffle-container heaptruffle "${args[@]}"
