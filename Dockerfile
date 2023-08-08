@@ -1,16 +1,14 @@
 # Use an official Node.js runtime as the base image
 FROM node:16.20.1
 
-# Set environment variable to prevent prompts
-ENV DEBIAN_FRONTEND=noninteractive
-
 # Install required libraries and Google Chrome
-RUN apt-get update && apt-get install -y wget gnupg --no-install-recommends \
+RUN apt-get update \
+    && apt-get install -y wget gnupg \
     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
+    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
     && apt-get update \
-    && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 --no-install-recommends \
-    && apt-get clean \
+    && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 \
+      --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Set a working directory within the container
