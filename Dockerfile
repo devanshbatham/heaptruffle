@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y wget unzip fonts-ipafont-gothic fonts-w
     && dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* google-chrome-stable_current_amd64.deb
-
+    
 # Set a working directory within the container
 WORKDIR /app
 
