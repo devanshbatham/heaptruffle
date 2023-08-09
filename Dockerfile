@@ -1,16 +1,16 @@
 # Use an official Node.js runtime as the base image
 FROM node:16.20.1
 
-# Install required libraries and Google Chrome
-RUN apt-get update \
-    && apt-get install -y wget gnupg \
-    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-    && apt-get update \
-    && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 \
-      --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
+# Set environment variable to prevent prompts
+ENV DEBIAN_FRONTEND=noninteractive
 
+# Install required dependencies and Google Chrome
+RUN apt-get update && apt-get install -y wget unzip fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 libappindicator1 libindicator7 --no-install-recommends \
+    && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* google-chrome-stable_current_amd64.deb
+    
 # Set a working directory within the container
 WORKDIR /app
 
