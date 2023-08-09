@@ -4,14 +4,12 @@ FROM node:16.20.1
 # Set environment variable to prevent prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install required libraries and Google Chrome
-RUN apt-get update && apt-get install -y wget gnupg --no-install-recommends \
-    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
-    && apt-get update \
-    && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 --no-install-recommends \
+# Install required dependencies and Google Chrome
+RUN apt-get update && apt-get install -y wget unzip fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 libappindicator1 libindicator7 --no-install-recommends \
+    && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* google-chrome-stable_current_amd64.deb
 
 # Set a working directory within the container
 WORKDIR /app
